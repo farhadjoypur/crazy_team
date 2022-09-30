@@ -1,5 +1,13 @@
 import tkinter as tk
 import matplotlib
+# import mysql.connector
+#
+# mydb = mysql.connector.connect(
+#   host="localhost",
+#   user="root",
+#   password="",
+#   database="message"
+# )
 
 matplotlib.use('TkAgg')
 
@@ -9,14 +17,23 @@ from matplotlib.backends.backend_tkagg import (
     NavigationToolbar2Tk
 )
 
-
 class App(tk.Tk):
     def __init__(self):
         super().__init__()
 
         self.title('Tkinter Matplotlib Demo')
 
-        # prepare data
+        # countData = mydb.cursor()
+        # countData.execute("SELECT COUNT(name), message * FROM message")
+        # countResult = countData.fetchall()
+        #
+        # nameData = mydb.cursor()
+        # nameData.execute("SELECT * FROM message GROUP BY name")
+        # nameResult = nameData.fetchall()
+        # # prepare data
+        #
+        # for names in nameResult:
+        #     print(names["name"])
         data = {
             'Python': 11.27,
             'C': 11.16,
