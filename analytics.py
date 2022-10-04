@@ -1,13 +1,13 @@
 import tkinter as tk
 import matplotlib
-# import mysql.connector
-#
-# mydb = mysql.connector.connect(
-#   host="localhost",
-#   user="root",
-#   password="",
-#   database="message"
-# )
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="",
+  database="message"
+)
 
 matplotlib.use('TkAgg')
 
@@ -35,11 +35,11 @@ class App(tk.Tk):
         # for names in nameResult:
         #     print(names["name"])
         data = {
-            'Python': 11.27,
-            'C': 11.16,
-            'Java': 10.46,
-            'C++': 7.5,
-            'C#': 5.26
+            'sami': 28,
+            'forhad': 16,
+            'nimmi😍': 10,
+            'joy': 7,
+            'tahin': 9,
         }
         languages = data.keys()
         popularity = data.values()
