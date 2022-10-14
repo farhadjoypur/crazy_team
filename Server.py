@@ -1,16 +1,5 @@
 import threading
 import socket
-import mysql.connector
-
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="",
-  database="bcProject"
-)
-
-print(mydb)
-
 
 #localhost
 host = "127.0.0.1"

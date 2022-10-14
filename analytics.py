@@ -6,7 +6,7 @@ mydb = mysql.connector.connect(
   host="localhost",
   user="root",
   password="",
-  database="message"
+  database="bcProject"
 )
 
 matplotlib.use('TkAgg')
@@ -34,13 +34,21 @@ class App(tk.Tk):
         #
         # for names in nameResult:
         #     print(names["name"])
-        data = {
-            'sami': 28,
-            'forhad': 16,
-            'nimmi😍': 10,
-            'joy': 7,
-            'tahin': 9,
-        }
+        # data = {
+        #     'sami': 28,
+        #     'forhad': 16,
+        #     'nimmi😍': 10,
+        #     'joy': 7,
+        #     'tahin': 9,
+        # }
+        data = {}
+        mycursor = mydb.cursor()
+        mycursor.execute("SELECT name,COUNT(*) FROM usercomment GROUP BY name")
+        myresult = mycursor.fetchall()
+
+        for x in myresult:
+            data.update({x[0]:x[1]})
+            print(data)
         languages = data.keys()
         popularity = data.values()
 

@@ -1,5 +1,13 @@
 import socket
 import threading
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="",
+  database="bcProject"
+)
 
 nickname = input("Choose your nickname before joining server: ")
 
@@ -28,9 +36,19 @@ def receive():
 
 def write():
     while True:
-        message = f'{nickname}: {input("")}'
+        messageOnly = f'{input("")}'
+        message = f'{nickname}: {messageOnly}'
         client.send(message.encode('ascii'))
+        if "nimu" in messageOnly or "sami" in messageOnly:
+            print("কি ভাতিজা......  কি লিখো এইসব? ভালো হয়ে যাও")
+        elif "word" not in messageOnly:
+            print("Text verified")
 
+        mycursor = mydb.cursor()
+        sql = "INSERT INTO usercomment (name, message) VALUES (%s, %s)"
+        val = (nickname, messageOnly)
+        mycursor.execute(sql, val)
+        mydb.commit()
 #we are running 2 threads receive thread and the write thread
 
 
