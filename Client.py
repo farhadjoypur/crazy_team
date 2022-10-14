@@ -1,3 +1,4 @@
+import tkinter as tk
 import socket
 import threading
 import mysql.connector
@@ -40,7 +41,12 @@ def write():
         message = f'{nickname}: {messageOnly}'
         client.send(message.encode('ascii'))
         if "nimu" in messageOnly or "sami" in messageOnly:
-            print("কি ভাতিজা......  কি লিখো এইসব? ভালো হয়ে যাও")
+            window = tk.Tk()
+            window.title("Welcome to LikeGeeks app")
+            lbl = tk.Label(window, text="কি ভাতিজা......  কি লিখো এইসব? ভালো হয়ে যাও", foreground="red", background="black", font=("Arial Bold", 36))
+            lbl.grid(column=0, row=0)
+            window.mainloop()
+            return
         elif "word" not in messageOnly:
             print("Text verified")
 

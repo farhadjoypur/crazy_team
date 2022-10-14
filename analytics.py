@@ -21,26 +21,8 @@ class App(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.title('Tkinter Matplotlib Demo')
+        self.title('BC project')
 
-        # countData = mydb.cursor()
-        # countData.execute("SELECT COUNT(name), message * FROM message")
-        # countResult = countData.fetchall()
-        #
-        # nameData = mydb.cursor()
-        # nameData.execute("SELECT * FROM message GROUP BY name")
-        # nameResult = nameData.fetchall()
-        # # prepare data
-        #
-        # for names in nameResult:
-        #     print(names["name"])
-        # data = {
-        #     'sami': 28,
-        #     'forhad': 16,
-        #     'nimmi😍': 10,
-        #     'joy': 7,
-        #     'tahin': 9,
-        # }
         data = {}
         mycursor = mydb.cursor()
         mycursor.execute("SELECT name,COUNT(*) FROM usercomment GROUP BY name")
@@ -66,7 +48,7 @@ class App(tk.Tk):
 
         # create the barchart
         axes.bar(languages, popularity)
-        axes.set_title('Top 5 Programming Languages')
+        axes.set_title('Crazy Team')
         axes.set_ylabel('Popularity')
 
         figure_canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
